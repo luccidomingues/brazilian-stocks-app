@@ -3,5 +3,4 @@ pandas==1.0.1
 numpy==1.18.1
 scikit-learn==0.22.1
 base64
-seaborn=0.10.0
 yfinance=0.1.55
