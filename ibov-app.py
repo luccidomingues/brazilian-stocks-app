@@ -16,9 +16,12 @@ This app retrieves the list of the **IBOVESPA** (from toroinvestimentos) and its
 
 st.sidebar.header('User Input Features')
 
+
+
+
+
 # Web scraping of IBOVESPA data
 #
-
 
 # @st.cache
 # Luciano´s change
@@ -36,15 +39,13 @@ df = load_data()
 
 
 
+
 # Luciano code
 df['Setor'] = df['Setor'].str.replace('Bens Industriais','Bens industriais')
 df['Setor'] = df['Setor'].str.replace('Energia Elétrica','Energia elétrica')
 df.rename(columns={'Código da ação':'ticker'}, 
                  inplace=True)
 # ------------------------
-
-
-
 
 # sector = df.groupby('GICS Sector')
 sector = df.groupby('Setor')
@@ -54,6 +55,8 @@ sector = df.groupby('Setor')
 # Sidebar - Sector selection
 sorted_sector_unique = sorted( df['Setor'].unique() )
 selected_sector = st.sidebar.multiselect('Setor', sorted_sector_unique, sorted_sector_unique)
+
+
 
 
 # Filtering data
@@ -79,7 +82,7 @@ st.markdown(filedownload(df_selected_sector), unsafe_allow_html=True)
 # https://pypi.org/project/yfinance/
 
 data = yf.download(
-        tickers = list(df_selected_sector[:10].ticker+'.SA'),
+        tickers = list(df_selected_sector[:10].Ticker+'.SA'),
     
 #     df.ticker + '.SA'
     
@@ -111,7 +114,13 @@ def price_plot(symbol):
   plt.ylabel('Closing Price', fontweight='bold')
   return st.pyplot()
 
+
+
+
+# num_company = st.sidebar.slider('Number of Companies', 1, 10)
 num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
+
+
 
 if st.button('Show Plots'):
     st.header('Stock Closing Price')
