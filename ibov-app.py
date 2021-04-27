@@ -95,7 +95,7 @@ data = yf.download(
     
         period = "2y",
         interval = "1d",
-        group_by = 'ticker',
+        group_by = 'Ticker',
         auto_adjust = True,
         prepost = True,
         threads = True,
