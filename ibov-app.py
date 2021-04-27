@@ -56,9 +56,6 @@ sector = df.groupby('Setor')
 sorted_sector_unique = sorted( df['Setor'].unique() )
 selected_sector = st.sidebar.multiselect('Setor', sorted_sector_unique, sorted_sector_unique)
 
-num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
-
-
 
 
 # Filtering data
@@ -66,8 +63,8 @@ num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 df_selected_sector = df[ (df.Setor.isin(selected_sector)) ]
 
 
-# Filtering data
-# df_selected_team = playerstats[(playerstats.Tm.isin(selected_team)) & (playerstats.Pos.isin(selected_pos))]
+
+num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 
 st.header('Display Companies in Selected Sector')
@@ -133,3 +130,6 @@ if st.button('Show Plots'):
     st.header('Stock Closing Price')
     for i in list(df_selected_sector.Ticker+'.SA')[:num_company]:        
         price_plot(i)
+
+        
+        
