@@ -79,7 +79,7 @@ def filedownload(df):
     href = f'<a href="data:file/csv;base64,{b64}" download="IBOV.csv">Download CSV File</a>'
     return href
 
-num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
+
 
 st.markdown(filedownload(df_selected_sector), unsafe_allow_html=True)
 
@@ -104,6 +104,8 @@ data = yf.download(
     )
 
 
+
+num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 # Luciano
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
