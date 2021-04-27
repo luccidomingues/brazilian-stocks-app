@@ -64,7 +64,7 @@ df_selected_sector = df[ (df.Setor.isin(selected_sector)) ]
 
 
 
-num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
+
 
 
 st.header('Display Companies in Selected Sector')
@@ -78,6 +78,8 @@ def filedownload(df):
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
     href = f'<a href="data:file/csv;base64,{b64}" download="IBOV.csv">Download CSV File</a>'
     return href
+
+num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 st.markdown(filedownload(df_selected_sector), unsafe_allow_html=True)
 
