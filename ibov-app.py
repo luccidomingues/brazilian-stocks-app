@@ -56,6 +56,8 @@ sector = df.groupby('Setor')
 sorted_sector_unique = sorted( df['Setor'].unique() )
 selected_sector = st.sidebar.multiselect('Setor', sorted_sector_unique, sorted_sector_unique)
 
+num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
+
 
 
 
@@ -123,7 +125,7 @@ def price_plot(symbol):
 
 
 # num_company = st.sidebar.slider('Number of Companies', 1, 10)
-num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
+# num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 
 
