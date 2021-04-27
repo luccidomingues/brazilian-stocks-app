@@ -71,7 +71,9 @@ st.header('Display Companies in Selected Sector')
 st.write('Data Dimension: ' + str(df_selected_sector.shape[0]) + ' rows and ' + str(df_selected_sector.shape[1]) + ' columns.')
 
 
-st.write('Lista ' + str(list(df_selected_sector[:10].Ticker+'.SA')))
+
+
+# st.write('Lista ' + str(list(df_selected_sector[:10].Ticker+'.SA')))
 
 
 st.dataframe(df_selected_sector)
@@ -99,6 +101,17 @@ num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 
 
+data = yf.download(
+        tickers = "ABEV3 AZUL4",
+        period = "2y",
+        interval = "1d",
+        group_by = 'Ticker',
+        auto_adjust = True,
+        prepost = True,
+        threads = True,
+        proxy = None
+    )
+
 
 
 
@@ -122,16 +135,16 @@ num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 #     )
 
 
-data = yf.download(
-        tickers = list(df_selected_sector.Ticker+'.SA'),
-        period = "2y",
-        interval = "1d",
-        group_by = 'Ticker',
-        auto_adjust = True,
-        prepost = True,
-        threads = True,
-        proxy = None
-    )
+# data = yf.download(
+#         tickers = list(df_selected_sector.Ticker+'.SA'),
+#         period = "2y",
+#         interval = "1d",
+#         group_by = 'Ticker',
+#         auto_adjust = True,
+#         prepost = True,
+#         threads = True,
+#         proxy = None
+#     )
 
 
 
