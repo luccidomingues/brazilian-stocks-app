@@ -88,7 +88,14 @@ st.markdown(filedownload(df_selected_sector), unsafe_allow_html=True)
 num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 
-st.write('Lista ' + str(list(df_selected_sector.Ticker+'.SA')))
+# st.write('Lista ' + str(list(df_selected_sector.Ticker+'.SA')))
+
+str1 = list(df_selected_sector.Ticker+'.SA').replace(', ',' ')
+
+st.write('Lista ' + str(str1))
+
+
+
 
 # df['Setor'] = df['Setor'].str.replace('Bens Industriais','Bens industriais')
 
