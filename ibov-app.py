@@ -17,9 +17,6 @@ This app retrieves the list of the **IBOVESPA** (from toroinvestimentos) and its
 st.sidebar.header('User Input Features')
 
 
-
-
-
 # Web scraping of IBOVESPA data
 #
 
@@ -89,16 +86,6 @@ num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 
 # st.write('Lista ' + str(list(df_selected_sector.Ticker+'.SA')))
-
-str1 = list(df_selected_sector.Ticker+'.SA').replace("', '"," ")
-
-st.write('Lista ' + str(str1))
-
-
-
-
-# df['Setor'] = df['Setor'].str.replace('Bens Industriais','Bens industriais')
-
 
 
 
