@@ -83,25 +83,30 @@ def filedownload(df):
 
 st.markdown(filedownload(df_selected_sector), unsafe_allow_html=True)
 
+
+
 num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
+
 
 # https://pypi.org/project/yfinance/
 
-data = yf.download(
-        tickers = list(df_selected_sector[:10].Ticker+'.SA'),
+
+
+# data = yf.download(
+#         tickers = list(df_selected_sector[:10].Ticker+'.SA'),
     
-#     df.ticker + '.SA'
+# #     df.ticker + '.SA'
     
     
     
-        period = "2y",
-        interval = "1d",
-        group_by = 'Ticker',
-        auto_adjust = True,
-        prepost = True,
-        threads = True,
-        proxy = None
-    )
+#         period = "2y",
+#         interval = "1d",
+#         group_by = 'Ticker',
+#         auto_adjust = True,
+#         prepost = True,
+#         threads = True,
+#         proxy = None
+#     )
 
 
 
