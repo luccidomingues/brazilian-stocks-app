@@ -83,7 +83,7 @@ def filedownload(df):
 
 st.markdown(filedownload(df_selected_sector), unsafe_allow_html=True)
 
-
+num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 # https://pypi.org/project/yfinance/
 
@@ -105,7 +105,7 @@ data = yf.download(
 
 
 
-num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
+
 # Luciano
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
