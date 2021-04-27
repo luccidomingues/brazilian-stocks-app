@@ -60,7 +60,12 @@ selected_sector = st.sidebar.multiselect('Setor', sorted_sector_unique, sorted_s
 
 
 # Filtering data
-df_selected_sector = df[ (df['Setor'].isin(selected_sector)) ]
+# df_selected_sector = df[ (df['Setor'].isin(selected_sector)) ]
+df_selected_sector = df[ (df.Setor.isin(selected_sector)) ]
+
+
+# Filtering data
+# df_selected_team = playerstats[(playerstats.Tm.isin(selected_team)) & (playerstats.Pos.isin(selected_pos))]
 
 
 st.header('Display Companies in Selected Sector')
