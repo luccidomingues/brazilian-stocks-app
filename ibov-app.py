@@ -69,6 +69,11 @@ df_selected_sector = df[ (df.Setor.isin(selected_sector)) ]
 
 st.header('Display Companies in Selected Sector')
 st.write('Data Dimension: ' + str(df_selected_sector.shape[0]) + ' rows and ' + str(df_selected_sector.shape[1]) + ' columns.')
+
+
+st.write('Lista ' + list(df_selected_sector[:10].Ticker+'.SA'))
+
+
 st.dataframe(df_selected_sector)
 
 # Download Ibovespa data
@@ -92,7 +97,7 @@ num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 
 
-st.write('Lista ' + list(df_selected_sector[:10].Ticker+'.SA'))
+
 
 
 
