@@ -102,7 +102,7 @@ num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 
 data = yf.download(
-        tickers = "ABEV3 AZUL4",
+        tickers = "ABEV3.SA AZUL4.SA",
         period = "2y",
         interval = "1d",
         group_by = 'Ticker',
