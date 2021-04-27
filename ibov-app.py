@@ -64,16 +64,9 @@ df_selected_sector = df[ (df.Setor.isin(selected_sector)) ]
 
 
 
-
-
-
 st.header('Display Companies in Selected Sector')
 st.write('Data Dimension: ' + str(df_selected_sector.shape[0]) + ' rows and ' + str(df_selected_sector.shape[1]) + ' columns.')
 
-
-
-
-# st.write('Lista ' + str(list(df_selected_sector[:10].Ticker+'.SA')))
 
 
 st.dataframe(df_selected_sector)
@@ -95,14 +88,17 @@ st.markdown(filedownload(df_selected_sector), unsafe_allow_html=True)
 num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 
 
+st.write('Lista ' + str(list(df_selected_sector.Ticker+'.SA')))
+
+# df['Setor'] = df['Setor'].str.replace('Bens Industriais','Bens industriais')
 
 
 
 
-
+# https://pypi.org/project/yfinance/
 
 data = yf.download(
-        tickers = "ABEV3.SA AZUL4.SA",
+        tickers = list(df_selected_sector[:10].Ticker+'.SA'),
         period = "2y",
         interval = "1d",
         group_by = 'ticker',
@@ -111,42 +107,6 @@ data = yf.download(
         threads = True,
         proxy = None
     )
-
-
-
-
-
-# https://pypi.org/project/yfinance/
-
-# data = yf.download(
-#         tickers = list(df_selected_sector[:10].Ticker+'.SA'),
-    
-# #     df.ticker + '.SA'
-    
-    
-    
-#         period = "2y",
-#         interval = "1d",
-#         group_by = 'Ticker',
-#         auto_adjust = True,
-#         prepost = True,
-#         threads = True,
-#         proxy = None
-#     )
-
-
-# data = yf.download(
-#         tickers = list(df_selected_sector.Ticker+'.SA'),
-#         period = "2y",
-#         interval = "1d",
-#         group_by = 'Ticker',
-#         auto_adjust = True,
-#         prepost = True,
-#         threads = True,
-#         proxy = None
-#     )
-
-
 
 
 # data = yf.download(  # or pdr.get_data_yahoo(...
@@ -202,11 +162,8 @@ def price_plot(symbol):
   return st.pyplot()
 
 
-
-
 # num_company = st.sidebar.slider('Number of Companies', 1, 10)
 # num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
-
 
 
 if st.button('Show Plots'):
