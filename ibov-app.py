@@ -109,6 +109,18 @@ num_company = st.sidebar.slider('Number of Companies', 1, 10, 1, 1)
 #     )
 
 
+data = yf.download(
+        tickers = list(df_selected_sector.Ticker+'.SA'),
+        period = "2y",
+        interval = "1d",
+        group_by = 'Ticker',
+        auto_adjust = True,
+        prepost = True,
+        threads = True,
+        proxy = None
+    )
+
+
 
 
 # Luciano
