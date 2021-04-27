@@ -71,7 +71,7 @@ st.header('Display Companies in Selected Sector')
 st.write('Data Dimension: ' + str(df_selected_sector.shape[0]) + ' rows and ' + str(df_selected_sector.shape[1]) + ' columns.')
 
 
-st.write('Lista ' + list(df_selected_sector[:10].Ticker+'.SA'))
+st.write('Lista ' + str(list(df_selected_sector[:10].Ticker+'.SA')))
 
 
 st.dataframe(df_selected_sector)
